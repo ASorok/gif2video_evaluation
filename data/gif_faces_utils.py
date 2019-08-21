@@ -103,8 +103,8 @@ class gif_faces_ct_eval(DD.Dataset):
         gif0s = np.asarray(list(inputFile(a) for a in ts_start))
         gif1s = np.asarray(list(inputFile(b) for b in ts_finish))
         targets = np.asarray(list(list(targetFile(t) for t in range(a, b+1)) for a, b in zip(ts_start, ts_finish)))
-        color0s = np.asarray(list(inputPalette(a)[1] for a in ts_start))
-        color1s = np.asarray(list(inputPalette(b)[1] for b in ts_finish))
+        color0s = np.asarray(list(inputPalette(a) for a in ts_start))
+        color1s = np.asarray(list(inputPalette(b) for b in ts_finish))
         # numpy to tensor
         gif0s = torch.ByteTensor(np.moveaxis(gif0s, 3, 1)) # N C H W
         gif1s = torch.ByteTensor(np.moveaxis(gif1s, 3, 1)) # N C H W
